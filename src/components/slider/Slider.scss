@@ -1,0 +1,73 @@
+.slider{
+    position: relative;
+    max-width: 800px;
+    margin: 30px;
+    &__track{
+        width: 100%;
+        overflow: hidden; 
+    }   
+    &__line{
+        display: flex;
+        transition: 1s;
+        width: 100%;
+        overflow: hidden;
+    }
+    &__item{
+        background-color: aqua;
+        border-radius: 10px;
+    }
+    &__img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    &__button{
+        background-color: white;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 0px 0px 5px 5px rgba(28, 71, 117, 0.8);
+        top: calc(50% - 20px);
+        &::after{
+            content: '';
+            position: absolute;
+            background-color: black;
+            height: 2px;
+            width: 15px;
+            top: 14px;
+            left: 13px;       
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            background-color: black;
+            height: 2px;
+            width: 15px;
+            bottom: 14px;
+            left: 13px;
+            
+        }
+        &.prev{
+            left: -20px;
+            &::after{
+                transform: rotate(-45deg);
+                left: 10px;
+            }
+            &::before{
+                transform: rotate(45deg);
+                left: 10px;
+            }
+        }
+        &.next{
+            right: -20px;
+            &::after{
+                transform: rotate(45deg);
+            }
+            &::before{
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
